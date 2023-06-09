@@ -1,39 +1,45 @@
 import Transaccion from "./Transaccion"
 import useGastos from "../hooks/useGastos"
 
-
 const listaTransacciones = () => {
 
-    const { transacciones, movimientosFiltrados } = useGastos()
+    const { transacciones, movimientosFiltrados, filtro } = useGastos()
 
     return (
         <div className='contenedor mx-auto rounded-3 m-5'>
 
-            <h3 className="text-primary fs-4">{movimientosFiltrados.length ? '' : 'Aun no hay Transacciones'}</h3>
+            {/* Evalua si existe un filtro activo si no existe renderiza todas las transacciones o movimientos */}
+            {
+                filtro ?
 
-            {transacciones.map(transaccion => (
-                <Transaccion
-                    key={transaccion.id}
-                    transaccion={transaccion}
-                />
-            ))}
-            {/* {
-                movimientosFiltrados ? (movimientosFiltrados.map(transaccion => (
-                    <Transaccion
-                        key={transaccion.id}
-                        transaccion={transaccion}
-                    />
-                ))) :
+                    <>
+                        <h3 className="text-primary text-center fs-4">{movimientosFiltrados.length ? '' : 'No hay movimientos aquí'}</h3>
 
-                (
-                    transacciones.map(transaccion => (
-                        <Transaccion
-                            key={transaccion.id}
-                            transaccion={transaccion}
-                        />
-                    ))
-                )
-            } */}
+                        {(movimientosFiltrados.map(transaccion => (
+                            <Transaccion
+                                key={transaccion.id}
+                                transaccion={transaccion}
+                            />
+                        )))
+                        }
+                    </>
+
+                    :
+
+                    (
+                        <>
+                            <h3 className="text-primary text-center fs-4">{transacciones.length ? 'Todos los movimientos' : 'No hay movimientos aquí'}</h3>
+                            {
+                                transacciones.map(transaccion => (
+                                    <Transaccion
+                                        key={transaccion.id}
+                                        transaccion={transaccion}
+                                    />
+                                ))
+                            }
+                        </>
+                    )
+            }
 
         </div>
     )

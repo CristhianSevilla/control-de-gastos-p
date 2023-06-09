@@ -1,0 +1,74 @@
+{
+  "transacciones": [
+    {
+      "tipo": "2",
+      "movimiento": "Dentista",
+      "cantidad": "700",
+      "id": "glaa7ol3kxliox0qio",
+      "fecha": 1673548800000
+    },
+    {
+      "tipo": 1,
+      "movimiento": "Bono",
+      "cantidad": "2300",
+      "id": "jksosf2c1flio2uv70",
+      "fecha": 1674067200000
+    },
+    {
+      "tipo": "2",
+      "movimiento": "Netflix",
+      "cantidad": "123",
+      "id": "k7833oj6igliownnb0",
+      "fecha": 1675132800000
+    },
+    {
+      "tipo": 2,
+      "movimiento": "Consulta",
+      "cantidad": "300",
+      "id": "yubnd4jdqblio2vkc3",
+      "fecha": 1676822400000
+    },
+    {
+      "tipo": "1",
+      "movimiento": "Transferencia de Juan",
+      "cantidad": "1234",
+      "id": "fny41d5nczliowv3jc",
+      "fecha": 1678051200000
+    },
+    {
+      "tipo": 1,
+      "movimiento": "Transaccion",
+      "cantidad": "400",
+      "id": "qpunex7hbelio2u7rl",
+      "fecha": 1678195200000
+    },
+    {
+      "tipo": 2,
+      "movimiento": "Netflix",
+      "cantidad": "150",
+      "id": "vkj11mcj3gqlio2ug28",
+      "fecha": 1683225600000
+    },
+    {
+      "tipo": 2,
+      "movimiento": "Spotify",
+      "cantidad": "120",
+      "id": "xrlrqu68pqblio2vkcf",
+      "fecha": 1683225600000
+    },
+    {
+      "tipo": "2",
+      "movimiento": "Pizza",
+      "cantidad": "120",
+      "id": "n663kvkk66mlioy08is",
+      "fecha": 1686337834276
+    },
+    {
+      "tipo": "1",
+      "movimiento": "Transferencia Anna",
+      "cantidad": "300",
+      "id": "t3tizphsbolioy0u7z",
+      "fecha": 1686337862399
+    }
+  ]
+}

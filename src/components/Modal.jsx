@@ -25,6 +25,7 @@ const Modal = () => {
             </div>
 
             <Formulario/>
+            
         </div>
 
     )

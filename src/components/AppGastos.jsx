@@ -6,6 +6,7 @@ import Modal from "./Modal"
 
 const AppGastos = () => {
 
+  //Ventana modal para el formulario de nuevo movimiento
   const { modal, setModal } = useGastos()
 
   const handleMovimiento = (e) => {
@@ -21,17 +22,15 @@ const AppGastos = () => {
       <Balance />
       <ListaTransacciones />
 
-      <form
-        onSubmit={handleMovimiento}
-        className='d-flex justify-content-center mx-auto'
-      >
-
-        <input
-          className="bg-primary border-0 px-5 py-2 mb-4  text-center text-white fw-bold position-fixed bottom-0"
-          type="submit"
-          value="Agregar Movimiento"
-        />
-      </form>
+      <div className='d-flex justify-content-center mx-auto'>
+        <button
+          className="btn btn-primary rounded-0 border-0 px-5 py-2 mb-4  text-center text-white fw-bold position-fixed bottom-0"
+          type="button"
+          onClick={handleMovimiento}
+        >
+          Agregar Movimiento
+        </button>
+      </div>
 
       {modal ? <Modal /> : ''}
 

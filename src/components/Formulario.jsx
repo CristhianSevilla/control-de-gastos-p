@@ -7,10 +7,12 @@ const Formulario = () => {
 
     const { datos, handleChangeDatos, error, setError, guardarTransaccion } = useGastos()
 
-    const handleSubmit = e => {
-        e.preventDefault()
+    //Funcion que se ejecuta al enviar el formulario
+    const handleSubmit = async (event) => {
+        //Se evita el evento
+        event.preventDefault();
 
-        //Validaciones
+        //Validaciones del formulario
         if (Object.values(datos).includes('')) {
             setError('Todos los campos son obligatorios')
             return
@@ -18,7 +20,27 @@ const Formulario = () => {
 
         setError('')
 
+        //Sube los datos al state de transacciones
         guardarTransaccion(datos)
+
+        //Si no existen errores se escribe en la API
+        try {
+            const respuesta = await fetch(import.meta.env.VITE_API_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(datos)
+            });
+
+            if (respuesta.ok) {
+                console.log('Datos enviados correctamente')
+            } else {
+                console.error('Error al enviar los datos:', respuesta.status)
+            }
+        } catch (error) {
+            console.error('Error al enviar los datos:', error)
+        }
     }
 
     return (
@@ -26,9 +48,9 @@ const Formulario = () => {
 
             <form className="contenedor align-items-center mx-auto bg-white p-4 rounded shadow" onSubmit={handleSubmit}>
                 <legend className="text-center fs-1 mb-4">Nuevo Movimiento</legend>
-
+                
+                {/* Mensaje de error */}
                 {error && <Error />}
-
 
                 <div className="d-flex flex-column gap-2 mb-4">
                     <label className=" fs-5" htmlFor="movimiento">Tipo de Movimiento</label>

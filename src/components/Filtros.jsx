@@ -1,29 +1,14 @@
 import { MESES } from "../constants"
-import { Fragment, useState } from "react"
+import { Fragment} from "react"
 import useGastos from "../hooks/useGastos"
 
-
-const Header = () => {
-  const { transacciones } = useGastos()
-  const { movimientosFiltrados, setMovimientosFiltrados } = useGastos()
-
-  const comprarMes = claveMes => {
-
-    const transaccionesFiltradas = transacciones.filter(transaccion => {
-      const fecha = new Date(transaccion.fecha);
-      const mesTransaccion = fecha.getMonth();
-      return (mesTransaccion + 1) === claveMes;
-    });
-
-    setMovimientosFiltrados(transaccionesFiltradas)
-
-    console.log(movimientosFiltrados);
-  }
+const Filtros = () => {
+  const { setFiltro} = useGastos()
 
   return (
     <>
-      <div className="d-flex justify-content-center bg-primary rounded-bottom overflow-hidden">
-        <ul className="list-group list-group-horizontal p-2   ">
+      <div className="d-flex justify-content-center bg-primary rounded-bottom ">
+        <ul className="mx-auto list-group list-group-horizontal p-2 overflow-auto">
           {
             MESES.map(mes => (
               <Fragment
@@ -31,7 +16,7 @@ const Header = () => {
               >
                 <li
                   className="list-group-item  text-white fs-5 border-0 hover-overly"
-                  onClick={() => comprarMes(mes.id)}
+                  onClick={() => setFiltro(mes.id)}
                 >
                   {mes.nombre}
                 </li>
@@ -45,7 +30,7 @@ const Header = () => {
   )
 }
 
-export default Header
+export default Filtros
 
 
 
