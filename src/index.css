@@ -1,0 +1,40 @@
+body {
+  font-family: 'PT Sans', sans-serif;
+}
+
+.contenedor {
+  width: 90%;
+  max-width: 120rem;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .contenedor {
+    padding: unset;
+    width: 75%;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 992px) {
+  .contenedor {
+    width: 50%;
+  }
+}
+.list-group-item{
+  background-color: transparent;
+}
+.list-group-item:hover{
+  background-color: #4a65a3;
+}
+
+.custom-carousel-container {
+  overflow-x: hidden;
+}
+
+.custom-carousel-container:hover {
+  overflow-x: scroll;
+}
+.carousel-item-custom {
+  width: 200px; /* Ajusta el ancho según tus necesidades */
+}
